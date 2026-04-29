@@ -1,3 +1,11 @@
+## 0.1.5
+
+- Default `CalendarConfig.maxVisibleLanes` raised from `3` to `4`.
+  Typical mobile cell heights have plenty of room for a 4th ribbon, and
+  the higher default matches Google Calendar's month view. Consumers
+  who want the previous density can pass
+  `CalendarConfig(maxVisibleLanes: 3)`.
+
 ## 0.1.4
 
 - Add a screenshot of the month view (with multi-day ribbons and the

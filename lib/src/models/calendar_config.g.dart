@@ -10,7 +10,7 @@ _CalendarConfig _$CalendarConfigFromJson(Map<String, dynamic> json) =>
     _CalendarConfig(
       firstDayOfWeek:
           (json['firstDayOfWeek'] as num?)?.toInt() ?? DateTime.monday,
-      maxVisibleLanes: (json['maxVisibleLanes'] as num?)?.toInt() ?? 3,
+      maxVisibleLanes: (json['maxVisibleLanes'] as num?)?.toInt() ?? 4,
       showWeekdayLabels: json['showWeekdayLabels'] as bool? ?? true,
       locale: json['locale'] as String?,
     );

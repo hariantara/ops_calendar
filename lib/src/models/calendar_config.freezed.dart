@@ -20,6 +20,9 @@ mixin _$CalendarConfig {
 
   /// Maximum number of event lanes shown per day cell before
   /// remaining events collapse into a "+N more" indicator.
+  ///
+  /// Default `4` fits comfortably in typical mobile cell heights and
+  /// matches Google Calendar's mobile month view.
   int get maxVisibleLanes;
 
   /// Whether to show weekday labels in the header row.
@@ -288,7 +291,7 @@ extension CalendarConfigPatterns on CalendarConfig {
 class _CalendarConfig implements CalendarConfig {
   const _CalendarConfig(
       {this.firstDayOfWeek = DateTime.monday,
-      this.maxVisibleLanes = 3,
+      this.maxVisibleLanes = 4,
       this.showWeekdayLabels = true,
       this.locale});
   factory _CalendarConfig.fromJson(Map<String, dynamic> json) =>
@@ -302,6 +305,9 @@ class _CalendarConfig implements CalendarConfig {
 
   /// Maximum number of event lanes shown per day cell before
   /// remaining events collapse into a "+N more" indicator.
+  ///
+  /// Default `4` fits comfortably in typical mobile cell heights and
+  /// matches Google Calendar's mobile month view.
   @override
   @JsonKey()
   final int maxVisibleLanes;

@@ -1,6 +1,6 @@
 name: ops_calendar
 description: Flutter month calendar widget with multi-day event ribbons, swipeable months, and tap callbacks. State-management agnostic, works with BLoC, Riverpod, Provider.
-version: 0.1.4
+version: 0.1.5
 homepage: https://github.com/hariantara/ops_calendar
 repository: https://github.com/hariantara/ops_calendar
 issue_tracker: https://github.com/hariantara/ops_calendar/issues

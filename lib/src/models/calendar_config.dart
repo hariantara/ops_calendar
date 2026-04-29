@@ -17,7 +17,10 @@ abstract class CalendarConfig with _$CalendarConfig {
 
     /// Maximum number of event lanes shown per day cell before
     /// remaining events collapse into a "+N more" indicator.
-    @Default(3) int maxVisibleLanes,
+    ///
+    /// Default `4` fits comfortably in typical mobile cell heights and
+    /// matches Google Calendar's mobile month view.
+    @Default(4) int maxVisibleLanes,
 
     /// Whether to show weekday labels in the header row.
     @Default(true) bool showWeekdayLabels,

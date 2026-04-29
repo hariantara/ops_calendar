@@ -96,7 +96,7 @@ void main() {
   testWidgets('overflow shows "+N more" when events exceed maxVisibleLanes',
       (tester) async {
     final events = [
-      for (var i = 0; i < 5; i++)
+      for (var i = 0; i < 7; i++)
         CalendarEvent(
           id: 'e$i',
           title: 'Event $i',
@@ -110,12 +110,12 @@ void main() {
         OpsMonthCalendar(
           initialMonth: DateTime(2026, 4),
           events: events,
-          // Default maxVisibleLanes = 3. With 5 single-day overlapping events,
-          // 2 overflow.
+          // Default maxVisibleLanes = 4. With 7 single-day overlapping events,
+          // 3 overflow.
         ),
       ),
     );
 
-    expect(find.text('+2 more'), findsOneWidget);
+    expect(find.text('+3 more'), findsOneWidget);
   });
 }
