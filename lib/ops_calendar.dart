@@ -9,3 +9,4 @@ export 'src/models/calendar_config.dart';
 export 'src/models/calendar_event.dart';
 export 'src/models/ops_calendar_theme.dart';
 export 'src/widgets/ops_month_calendar.dart';
+export 'src/widgets/ribbon_builder.dart';

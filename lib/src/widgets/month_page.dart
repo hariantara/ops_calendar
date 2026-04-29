@@ -6,6 +6,7 @@ import 'package:ops_calendar/src/models/calendar_config.dart';
 import 'package:ops_calendar/src/models/calendar_event.dart';
 import 'package:ops_calendar/src/models/ops_calendar_theme.dart';
 import 'package:ops_calendar/src/models/ribbon_segment.dart';
+import 'package:ops_calendar/src/widgets/ribbon_builder.dart';
 import 'package:ops_calendar/src/widgets/week_row.dart';
 
 /// One 6×7 month grid, ready to live inside a [PageView] page.
@@ -26,6 +27,7 @@ class MonthPage extends StatelessWidget {
     this.onEventTap,
     this.onDateTap,
     this.onDateLongPress,
+    this.ribbonBuilder,
     super.key,
   });
 
@@ -53,6 +55,9 @@ class MonthPage extends StatelessWidget {
 
   /// Long-press handler for a day cell.
   final void Function(DateTime date)? onDateLongPress;
+
+  /// Optional builder that replaces the default ribbon visual.
+  final OpsRibbonBuilder? ribbonBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -110,6 +115,7 @@ class MonthPage extends StatelessWidget {
                       onEventTap: onEventTap,
                       onDateTap: onDateTap,
                       onDateLongPress: onDateLongPress,
+                      ribbonBuilder: ribbonBuilder,
                     ),
                   ),
                 ),

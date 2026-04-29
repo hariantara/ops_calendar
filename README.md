@@ -22,6 +22,8 @@ A lightweight, performant Flutter month calendar with multi-day event ribbons.
 - [Programmatic control](#programmatic-control)
 - [Custom header with chevrons](#custom-header-with-chevrons)
 - [Tapping events & dates: popups, sheets, dialogs](#tapping-events--dates-popups-sheets-dialogs)
+- [Custom ribbon rendering with `ribbonBuilder`](#custom-ribbon-rendering-with-ribbonbuilder)
+- [Migrating from Syncfusion Calendar](#migrating-from-syncfusion-calendar)
 - [Data structure & mapping](#data-structure--mapping)
 - [State management](#state-management)
   - [BLoC](#with-bloc)
@@ -42,7 +44,7 @@ A lightweight, performant Flutter month calendar with multi-day event ribbons.
 
 ```yaml
 dependencies:
-  ops_calendar: ^0.1.7
+  ops_calendar: ^0.2.0
 ```
 
 Then:
@@ -419,6 +421,214 @@ onDateTap: (date) async {
   );
   if (created != null) /* refresh events */;
 },
+```
+
+---
+
+## Custom ribbon rendering with `ribbonBuilder`
+
+By default, every ribbon renders as a label on top of `event.color`. If you need a different look — a status icon, a leading colored bar, a card with subtitle, anything — pass a `ribbonBuilder` and the calendar uses your widget for every visible ribbon. The calendar still owns positioning and clipping; you own the painted contents and the tap behavior.
+
+```dart
+OpsMonthCalendar(
+  events: events,
+  onEventTap: (e) => debugPrint('tapped: ${e.title}'),
+  ribbonBuilder: (context, details) {
+    final event = details.event;
+    return GestureDetector(
+      onTap: details.onTap,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 1),
+        decoration: BoxDecoration(
+          color: event.color,
+          borderRadius: BorderRadius.horizontal(
+            left:  details.continuesFromPreviousWeek ? Radius.zero : const Radius.circular(4),
+            right: details.continuesIntoNextWeek    ? Radius.zero : const Radius.circular(4),
+          ),
+        ),
+        padding: const EdgeInsets.symmetric(horizontal: 4),
+        child: Row(children: [
+          if (event.metadata?['urgent'] == true)
+            const Icon(Icons.priority_high, size: 12, color: Colors.white),
+          Expanded(
+            child: Text(
+              event.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: const TextStyle(color: Colors.white, fontSize: 11),
+            ),
+          ),
+        ]),
+      ),
+    );
+  },
+);
+```
+
+`OpsRibbonBuilderContext` exposes:
+
+| Field | Type | Use |
+|---|---|---|
+| `event` | `CalendarEvent` | The event to render. Pull domain data via `event.metadata`. |
+| `continuesFromPreviousWeek` | `bool` | Square the left corners when `true`. |
+| `continuesIntoNextWeek` | `bool` | Square the right corners when `true`. |
+| `lane` | `int` | Vertical lane index — useful if the visual depends on lane (stripe pattern, alternating tint, etc.). |
+| `onTap` | `VoidCallback?` | Resolved tap handler. Wire it into your own `GestureDetector` / `InkWell`. `null` if no `onEventTap` was provided. |
+
+The "+N more" overflow indicator is still rendered by the calendar — its text style is governed by `OpsCalendarTheme.moreIndicatorStyle`. You don't have to handle the overflow case in your builder.
+
+---
+
+## Migrating from Syncfusion Calendar
+
+If you're coming from `syncfusion_flutter_calendar` for a month-view-only use case, here's the mapping. (Other view types — week, day, timeline — aren't covered yet; ops_calendar is month-only.)
+
+### Widget
+
+```dart
+// Syncfusion
+SfCalendar(
+  view: CalendarView.month,
+  firstDayOfWeek: 1,
+  todayHighlightColor: Colors.blue,
+  controller: _calendarController,
+  dataSource: _dataSource,
+  appointmentBuilder: _appointmentBuilder,
+  monthViewSettings: MonthViewSettings(
+    appointmentDisplayMode: MonthAppointmentDisplayMode.appointment,
+    appointmentDisplayCount: 3,
+  ),
+  onTap: _onTap,
+);
+
+// ops_calendar
+OpsMonthCalendar(
+  config: const CalendarConfig(
+    firstDayOfWeek: DateTime.monday,
+    maxVisibleLanes: 3,
+  ),
+  theme: const OpsCalendarTheme(todayHighlightColor: Colors.blue),
+  controller: _opsController,
+  events: _events,                  // see "Data source" below
+  ribbonBuilder: _ribbonBuilder,    // see "Builder" below
+  onDateTap: _onDateTap,            // empty cells
+  onEventTap: _onEventTap,          // ribbons (cleaner separation)
+);
+```
+
+### Controller
+
+| Syncfusion | ops_calendar |
+|---|---|
+| `CalendarController()` | `OpsCalendarController()` |
+| `controller.backward!()` | `controller.previousMonth()` |
+| `controller.forward!()` | `controller.nextMonth()` |
+| `controller.displayDate` | `controller.visibleMonth` |
+| `controller.dispose()` | `controller.dispose()` (inherited from `ChangeNotifier`) |
+
+### Data source
+
+Syncfusion's `CalendarDataSource` ↔ list of `Appointment` becomes a plain `List<CalendarEvent>`. Keep your domain object alive via `metadata`:
+
+```dart
+// Syncfusion
+class TaskDataSource extends CalendarDataSource {
+  TaskDataSource(List<TaskModel> tasks) {
+    appointments = tasks.map((t) => Appointment(
+      subject: t.title,
+      startTime: t.startsAt,
+      endTime: t.endsAt,
+      color: t.statusColor,
+      isAllDay: true,
+      notes: jsonEncode(t.toJson()),  // smuggle the domain object
+    )).toList();
+  }
+  TaskModel getTaskFromAppointment(dynamic a) =>
+      TaskModel.fromJson(jsonDecode((a as Appointment).notes!));
+}
+
+// ops_calendar — no data-source class at all, just map your list
+List<CalendarEvent> toCalendarEvents(List<TaskModel> tasks) =>
+    tasks.map((t) => CalendarEvent(
+      id: t.id,
+      title: t.title,
+      start: t.startsAt,
+      end: t.endsAt,
+      color: t.statusColor,
+      metadata: {'task': t},          // keep the domain object directly
+    )).toList();
+
+// In your handler:
+onEventTap: (CalendarEvent e) {
+  final task = e.metadata!['task'] as TaskModel;
+  // ...
+}
+```
+
+### Builder
+
+The new `ribbonBuilder` mirrors Syncfusion's `appointmentBuilder` for the appointment-cell case. Skip the "more region" branch — ops_calendar handles `+N more` automatically.
+
+```dart
+// Syncfusion's appointmentBuilder
+Widget _appointmentBuilder(BuildContext context, CalendarAppointmentDetails d) {
+  if (d.isMoreAppointmentRegion) {
+    return Center(child: Text('+${hidden} more'));   // delete this branch
+  }
+  final appointment = d.appointments.first;
+  final task = (_dataSource as TaskDataSource).getTaskFromAppointment(appointment);
+  return Container(
+    decoration: BoxDecoration(color: cardColor, borderRadius: BorderRadius.circular(2.5)),
+    child: Text(appointment.subject),
+  );
+}
+
+// ops_calendar's ribbonBuilder
+Widget _ribbonBuilder(BuildContext context, OpsRibbonBuilderContext d) {
+  final task = d.event.metadata!['task'] as TaskModel;
+  return GestureDetector(
+    onTap: d.onTap,
+    child: Container(
+      decoration: BoxDecoration(color: cardColor, borderRadius: BorderRadius.circular(2.5)),
+      child: Text(d.event.title),
+    ),
+  );
+}
+```
+
+### onTap
+
+Syncfusion combines all taps into one callback that branches on `details.targetElement`. ops_calendar splits them — cleaner code, no branching:
+
+```dart
+// Syncfusion
+onTap: (CalendarTapDetails d) {
+  if (d.targetElement == CalendarElement.calendarCell) {
+    handleDateTap(d.date!);
+  } else if (d.targetElement == CalendarElement.appointment) {
+    handleAppointmentTap(d.appointments!.first);
+  }
+},
+
+// ops_calendar
+onDateTap: handleDateTap,
+onEventTap: (e) => handleAppointmentTap(e),
+```
+
+### "+N more" customization
+
+Syncfusion: handle the `isMoreAppointmentRegion` branch in your builder. ops_calendar: configure `OpsCalendarTheme.moreIndicatorStyle`:
+
+```dart
+OpsMonthCalendar(
+  theme: OpsCalendarTheme(
+    moreIndicatorStyle: GoogleFonts.montserrat(
+      fontSize: 12,
+      fontWeight: FontWeight.w600,
+      color: Colors.blue,
+    ),
+  ),
+);
 ```
 
 ---

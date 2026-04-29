@@ -6,6 +6,7 @@ import 'package:ops_calendar/src/models/calendar_config.dart';
 import 'package:ops_calendar/src/models/calendar_event.dart';
 import 'package:ops_calendar/src/models/ops_calendar_theme.dart';
 import 'package:ops_calendar/src/widgets/month_page.dart';
+import 'package:ops_calendar/src/widgets/ribbon_builder.dart';
 import 'package:ops_calendar/src/widgets/weekday_header.dart';
 
 /// A swipeable month calendar with multi-day event ribbons.
@@ -30,6 +31,7 @@ class OpsMonthCalendar extends StatefulWidget {
     this.onEventTap,
     this.onDateTap,
     this.onDateLongPress,
+    this.ribbonBuilder,
   });
 
   /// Month rendered first. Defaults to the current month at construction.
@@ -70,6 +72,18 @@ class OpsMonthCalendar extends StatefulWidget {
 
   /// Fires when a day cell is long-pressed.
   final void Function(DateTime date)? onDateLongPress;
+
+  /// Optional builder for fully replacing the default ribbon visual.
+  ///
+  /// When `null`, ribbons render with the package's default look (label
+  /// over [CalendarEvent.color]). When set, every visible ribbon is
+  /// rendered by your widget instead — useful for matching an existing
+  /// design system or porting from another calendar package's
+  /// `appointmentBuilder` pattern.
+  ///
+  /// The calendar still positions, sizes, and clips each ribbon; the
+  /// builder controls the painted contents and the tap behavior.
+  final OpsRibbonBuilder? ribbonBuilder;
 
   @override
   State<OpsMonthCalendar> createState() => _OpsMonthCalendarState();
@@ -163,6 +177,7 @@ class _OpsMonthCalendarState extends State<OpsMonthCalendar> {
                 onEventTap: widget.onEventTap,
                 onDateTap: widget.onDateTap,
                 onDateLongPress: widget.onDateLongPress,
+                ribbonBuilder: widget.ribbonBuilder,
               );
             },
           ),

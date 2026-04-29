@@ -1,6 +1,6 @@
 name: ops_calendar
 description: Ribbon-based multi-day event calendar for Flutter. Month view with swipeable navigation. State-management agnostic — works with BLoC, Riverpod, Provider.
-version: 0.1.7
+version: 0.2.0
 homepage: https://github.com/hariantara/ops_calendar
 repository: https://github.com/hariantara/ops_calendar
 issue_tracker: https://github.com/hariantara/ops_calendar/issues

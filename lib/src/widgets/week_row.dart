@@ -6,6 +6,7 @@ import 'package:ops_calendar/src/models/ops_calendar_theme.dart';
 import 'package:ops_calendar/src/models/ribbon_segment.dart';
 import 'package:ops_calendar/src/widgets/day_cell.dart';
 import 'package:ops_calendar/src/widgets/ribbon.dart';
+import 'package:ops_calendar/src/widgets/ribbon_builder.dart';
 
 /// One 7-cell week row in the month grid.
 ///
@@ -26,6 +27,7 @@ class WeekRow extends StatelessWidget {
     this.onEventTap,
     this.onDateTap,
     this.onDateLongPress,
+    this.ribbonBuilder,
     super.key,
   });
 
@@ -63,6 +65,9 @@ class WeekRow extends StatelessWidget {
 
   /// Long-press handler for a day cell.
   final void Function(DateTime date)? onDateLongPress;
+
+  /// Optional builder that fully replaces the default [Ribbon] visual.
+  final OpsRibbonBuilder? ribbonBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +107,7 @@ class WeekRow extends StatelessWidget {
                   seg.lane * (theme.ribbonHeight + theme.ribbonGap),
               theme: theme,
               onTap: onEventTap == null ? null : () => onEventTap!(seg.event),
+              ribbonBuilder: ribbonBuilder,
             ),
         for (var col = 0; col < 7; col++)
           if (hiddenByColumn[col] > 0)
@@ -152,6 +158,7 @@ class _PositionedRibbon extends StatelessWidget {
     required this.top,
     required this.theme,
     this.onTap,
+    this.ribbonBuilder,
   });
 
   final RibbonSegment segment;
@@ -159,6 +166,7 @@ class _PositionedRibbon extends StatelessWidget {
   final double top;
   final OpsCalendarTheme theme;
   final VoidCallback? onTap;
+  final OpsRibbonBuilder? ribbonBuilder;
 
   @override
   Widget build(BuildContext context) {
@@ -168,12 +176,29 @@ class _PositionedRibbon extends StatelessWidget {
     final right = (7 - segment.endColumn - 1) * cellWidth +
         (segment.continuesIntoNextWeek ? 0 : horizontalInset);
 
+    final Widget child;
+    final builder = ribbonBuilder;
+    if (builder != null) {
+      child = builder(
+        context,
+        OpsRibbonBuilderContext(
+          event: segment.event,
+          continuesFromPreviousWeek: segment.continuesFromPreviousWeek,
+          continuesIntoNextWeek: segment.continuesIntoNextWeek,
+          lane: segment.lane,
+          onTap: onTap,
+        ),
+      );
+    } else {
+      child = Ribbon(segment: segment, theme: theme, onTap: onTap);
+    }
+
     return Positioned(
       left: left,
       right: right,
       top: top,
       height: theme.ribbonHeight,
-      child: Ribbon(segment: segment, theme: theme, onTap: onTap),
+      child: child,
     );
   }
 }

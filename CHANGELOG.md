@@ -1,3 +1,24 @@
+## 0.2.0
+
+- **New**: `OpsMonthCalendar.ribbonBuilder` — fully replace the default
+  ribbon visual with your own widget. Mirrors Syncfusion's
+  `appointmentBuilder` pattern, so consumers porting from
+  `syncfusion_flutter_calendar` can drop in their existing custom
+  appointment widgets with minimal change. The calendar still owns
+  positioning and clipping; the builder owns paint contents and tap
+  gestures.
+- **New**: `OpsRibbonBuilder` typedef and `OpsRibbonBuilderContext`
+  class exported from the public API. The context exposes the event,
+  the continues-from/into-week flags (for matching the existing
+  squared-corner-on-the-continued-side convention), the lane index,
+  and the resolved tap callback.
+- **Migration recipe** added to README under "Migrating from
+  Syncfusion".
+- Backwards compatible — `ribbonBuilder` is null by default and
+  ribbons render unchanged when not provided.
+
+Minor bump (0.1.x → 0.2.0) signals the new public API surface.
+
 ## 0.1.7
 
 - Update the README's installation snippet to reference `^0.1.7`
