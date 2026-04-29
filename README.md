@@ -2,6 +2,10 @@
 
 A lightweight, performant Flutter month calendar with multi-day event ribbons.
 
+<p align="center">
+  <img src="screenshots/demo.gif" alt="ops_calendar demo: swiping between months, tapping events, opening the detail sheet" width="320" />
+</p>
+
 - **State-management agnostic** — works with BLoC, Riverpod, Provider, GetX, or plain `setState`.
 - **Multi-day ribbons** — events spanning multiple days render as continuous bars across week rows, with greedy lane packing for overlapping events.
 - **Programmatic control** — `OpsCalendarController` for next/previous/jump-to-month and listening to the visible month from outside the widget.

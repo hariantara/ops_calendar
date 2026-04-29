@@ -1,3 +1,18 @@
+## 0.1.6
+
+- Add animated demo GIF (`screenshots/demo.gif`, 320×711, 1.4 MB, 9.7s)
+  showing month swipe, event tap, and the bottom-sheet detail flow. The
+  GIF is now the first screenshot on the package page and embedded near
+  the top of the README.
+- Sharpen package description to lead with the differentiator
+  ("Ribbon-based multi-day event calendar for Flutter") instead of
+  generic feature lists.
+- Add GitHub Actions workflow (`.github/workflows/deploy-demo.yml`) to
+  build the example app as Flutter web and deploy to GitHub Pages on
+  every `main` push. After enabling Pages in repo settings → Source:
+  GitHub Actions, the live demo lives at
+  https://hariantara.github.io/ops_calendar/.
+
 ## 0.1.5
 
 - Default `CalendarConfig.maxVisibleLanes` raised from `3` to `4`.
