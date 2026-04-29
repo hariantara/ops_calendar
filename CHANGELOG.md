@@ -1,3 +1,12 @@
+## 0.1.3
+
+- Add pub.dev `topics:` (`calendar`, `widget`, `event`, `appointment`,
+  `month-view`) for better discoverability via pub.dev topic pages and
+  search.
+- Sharpen package description to surface the most-searched keywords
+  (Flutter, month calendar, widget, BLoC, Riverpod, Provider) within
+  pub.dev's 60–180 character limit.
+
 ## 0.1.2
 
 - Migrate to `freezed` 3.x and `freezed_annotation` 3.x.
