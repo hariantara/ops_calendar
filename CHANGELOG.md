@@ -1,3 +1,9 @@
+## 0.1.4
+
+- Add a screenshot of the month view (with multi-day ribbons and the
+  `+N more` overflow indicator) so pub.dev's package page shows a
+  preview at the top.
+
 ## 0.1.3
 
 - Add pub.dev `topics:` (`calendar`, `widget`, `event`, `appointment`,
