@@ -1,3 +1,8 @@
+## 0.1.7
+
+- Update the README's installation snippet to reference `^0.1.7`
+  (was stuck at `^0.1.0`).
+
 ## 0.1.6
 
 - Add animated demo GIF (`screenshots/demo.gif`, 320×711, 1.4 MB, 9.7s)

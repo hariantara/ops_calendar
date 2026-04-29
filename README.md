@@ -42,7 +42,7 @@ A lightweight, performant Flutter month calendar with multi-day event ribbons.
 
 ```yaml
 dependencies:
-  ops_calendar: ^0.1.0
+  ops_calendar: ^0.1.7
 ```
 
 Then:
