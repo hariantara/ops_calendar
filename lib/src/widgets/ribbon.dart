@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../models/ops_calendar_theme.dart';
-import '../models/ribbon_segment.dart';
+import 'package:ops_calendar/src/models/ops_calendar_theme.dart';
+import 'package:ops_calendar/src/models/ribbon_segment.dart';
 
 /// Visual rendering of one [RibbonSegment].
 ///

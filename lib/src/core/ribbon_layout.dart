@@ -1,6 +1,6 @@
-import '../models/calendar_event.dart';
-import '../models/ribbon_segment.dart';
-import 'calendar_date_utils.dart';
+import 'package:ops_calendar/src/core/calendar_date_utils.dart';
+import 'package:ops_calendar/src/models/calendar_event.dart';
+import 'package:ops_calendar/src/models/ribbon_segment.dart';
 
 /// Lays out events as ribbon segments within a single 7-day week row.
 ///

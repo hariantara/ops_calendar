@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-/// Visual styling for [OpsMonthCalendar].
+/// Visual styling for `OpsMonthCalendar`.
 ///
 /// Implemented as a [ThemeExtension] so it integrates with [ThemeData]
 /// and [Theme.of] lookups. Pass directly to the widget for one-off

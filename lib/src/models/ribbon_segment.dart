@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'calendar_event.dart';
+import 'package:ops_calendar/src/models/calendar_event.dart';
 
 part 'ribbon_segment.freezed.dart';
 

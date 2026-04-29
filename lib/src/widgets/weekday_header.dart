@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../models/ops_calendar_theme.dart';
+import 'package:ops_calendar/src/models/ops_calendar_theme.dart';
 
 /// One row of weekday abbreviations (Mon, Tue, ...) sized to match the
 /// 7-column month grid below it. Pulls labels from
@@ -29,10 +29,14 @@ class WeekdayHeader extends StatelessWidget {
     final narrow = MaterialLocalizations.of(context).narrowWeekdays;
     // narrow[0]=Sun, narrow[1]=Mon, ..., narrow[6]=Sat
     // ISO weekday W maps to narrow index W % 7
-    final labels = List<String>.generate(7, (i) {
-      final iso = ((firstDayOfWeek - 1 + i) % 7) + 1;
-      return narrow[iso % 7];
-    }, growable: false);
+    final labels = List<String>.generate(
+      7,
+      (i) {
+        final iso = ((firstDayOfWeek - 1 + i) % 7) + 1;
+        return narrow[iso % 7];
+      },
+      growable: false,
+    );
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 6),

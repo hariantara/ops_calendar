@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-/// Programmatic control surface for [OpsMonthCalendar].
+/// Programmatic control surface for `OpsMonthCalendar`.
 ///
 /// Create one in your [State.initState], pass it to the calendar via the
 /// `controller:` argument, and dispose it in [State.dispose] — same lifecycle
@@ -105,12 +105,12 @@ class OpsCalendarController extends ChangeNotifier {
       goToMonth(DateTime.now(), duration: duration, curve: curve);
 
   // -------------------------------------------------------------------------
-  // Internal API — called by [OpsMonthCalendar]; not for consumer use.
+  // Internal API — called by `OpsMonthCalendar`; not for consumer use.
   // -------------------------------------------------------------------------
 
   /// Internal: binds this controller to the widget that owns it.
   ///
-  /// Called by [OpsMonthCalendar] in [State.initState]. Throws if the
+  /// Called by `OpsMonthCalendar` in [State.initState]. Throws if the
   /// controller is already attached to a live widget.
   @internal
   void attach({

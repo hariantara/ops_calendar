@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../core/calendar_date_utils.dart';
-import '../models/ops_calendar_theme.dart';
+import 'package:ops_calendar/src/core/calendar_date_utils.dart';
+import 'package:ops_calendar/src/models/ops_calendar_theme.dart';
 
 /// Background, border, and day number for a single day in the month grid.
 ///
@@ -102,7 +102,7 @@ class _DayNumberBadge extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Color? bg;
-    TextStyle effective = textStyle;
+    var effective = textStyle;
     if (isSelected) {
       bg = selectedColor;
       effective = textStyle.copyWith(color: Colors.white);

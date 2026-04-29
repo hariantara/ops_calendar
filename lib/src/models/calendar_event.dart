@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'color_converter.dart';
+import 'package:ops_calendar/src/models/color_converter.dart';
 
 part 'calendar_event.freezed.dart';
 part 'calendar_event.g.dart';

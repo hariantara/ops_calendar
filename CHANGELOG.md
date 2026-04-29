@@ -1,3 +1,13 @@
+## 0.1.1
+
+- Switched all internal imports to `package:` form (lint cleanup, no
+  behavior change).
+- Tightened cascade usage in `OpsMonthCalendar` controller attachment.
+- Removed redundant default arguments and one stray comment reference.
+- Added `.pubignore` to exclude `example/` platform scaffolds (`android/`,
+  `ios/`, `linux/`, `macos/`, `web/`, `windows/`) from the published
+  archive — drops the upload from ~295 KB to ~50 KB.
+
 ## 0.1.0
 
 - Initial release.

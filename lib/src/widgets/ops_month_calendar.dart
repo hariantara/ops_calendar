@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../controllers/ops_calendar_controller.dart';
-import '../core/calendar_date_utils.dart';
-import '../models/calendar_config.dart';
-import '../models/calendar_event.dart';
-import '../models/ops_calendar_theme.dart';
-import 'month_page.dart';
-import 'weekday_header.dart';
+import 'package:ops_calendar/src/controllers/ops_calendar_controller.dart';
+import 'package:ops_calendar/src/core/calendar_date_utils.dart';
+import 'package:ops_calendar/src/models/calendar_config.dart';
+import 'package:ops_calendar/src/models/calendar_event.dart';
+import 'package:ops_calendar/src/models/ops_calendar_theme.dart';
+import 'package:ops_calendar/src/widgets/month_page.dart';
+import 'package:ops_calendar/src/widgets/weekday_header.dart';
 
 /// A swipeable month calendar with multi-day event ribbons.
 ///
@@ -48,7 +48,8 @@ class OpsMonthCalendar extends StatefulWidget {
   /// [Theme.of] extension and finally to [OpsCalendarTheme]'s defaults.
   final OpsCalendarTheme? theme;
 
-  /// Externally-selected date highlighted with [OpsCalendarTheme.selectedDayColor].
+  /// Externally-selected date highlighted with the theme's
+  /// [OpsCalendarTheme.selectedDayColor].
   final DateTime? selectedDate;
 
   /// Optional controller for programmatic navigation (next/previous month,
@@ -90,12 +91,13 @@ class _OpsMonthCalendarState extends State<OpsMonthCalendar> {
     _controller = PageController(initialPage: _initialPage);
     final c = widget.controller;
     if (c != null) {
-      c.attach(
-        pageController: _controller,
-        baseMonth: _baseMonth,
-        initialPage: _initialPage,
-      );
-      c.updateVisibleMonth(_baseMonth);
+      c
+        ..attach(
+          pageController: _controller,
+          baseMonth: _baseMonth,
+          initialPage: _initialPage,
+        )
+        ..updateVisibleMonth(_baseMonth);
     }
   }
 
@@ -106,13 +108,15 @@ class _OpsMonthCalendarState extends State<OpsMonthCalendar> {
       oldWidget.controller?.detach();
       final c = widget.controller;
       if (c != null) {
-        c.attach(
-          pageController: _controller,
-          baseMonth: _baseMonth,
-          initialPage: _initialPage,
-        );
-        c.updateVisibleMonth(_monthForPage(_controller.page?.round() ??
-            _initialPage));
+        c
+          ..attach(
+            pageController: _controller,
+            baseMonth: _baseMonth,
+            initialPage: _initialPage,
+          )
+          ..updateVisibleMonth(
+            _monthForPage(_controller.page?.round() ?? _initialPage),
+          );
       }
     }
   }

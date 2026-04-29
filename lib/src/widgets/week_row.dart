@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../core/calendar_date_utils.dart';
-import '../models/calendar_event.dart';
-import '../models/ops_calendar_theme.dart';
-import '../models/ribbon_segment.dart';
-import 'day_cell.dart';
-import 'ribbon.dart';
+import 'package:ops_calendar/src/core/calendar_date_utils.dart';
+import 'package:ops_calendar/src/models/calendar_event.dart';
+import 'package:ops_calendar/src/models/ops_calendar_theme.dart';
+import 'package:ops_calendar/src/models/ribbon_segment.dart';
+import 'package:ops_calendar/src/widgets/day_cell.dart';
+import 'package:ops_calendar/src/widgets/ribbon.dart';
 
 /// One 7-cell week row in the month grid.
 ///
 /// Pure rendering — receives pre-laid-out [segments] from its parent
-/// [MonthPage] so layout work doesn't repeat per row rebuild. Receives
+/// `MonthPage` so layout work doesn't repeat per row rebuild. Receives
 /// [cellWidth] and [today] from above for the same reason.
 class WeekRow extends StatelessWidget {
   /// Creates a [WeekRow].
@@ -33,13 +33,13 @@ class WeekRow extends StatelessWidget {
   final DateTime weekStart;
 
   /// Pixel width of a single day cell, fed down from a parent
-  /// [LayoutBuilder] in [MonthPage].
+  /// [LayoutBuilder] in the enclosing `MonthPage`.
   final double cellWidth;
 
   /// The month currently being displayed; days outside it grey out.
   final DateTime displayedMonth;
 
-  /// Today (local). Hoisted from [MonthPage] so we don't call
+  /// Today (local). Hoisted from the enclosing `MonthPage` so we don't call
   /// [DateTime.now] per row build.
   final DateTime today;
 
@@ -71,7 +71,6 @@ class WeekRow extends StatelessWidget {
     final ribbonTopOffset = dayNumberAreaHeight;
 
     return Stack(
-      clipBehavior: Clip.hardEdge,
       children: [
         Row(
           children: List<Widget>.generate(7, (col) {

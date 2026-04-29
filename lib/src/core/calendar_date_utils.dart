@@ -80,6 +80,10 @@ class CalendarDateUtils {
   /// 42 consecutive days (6 weeks × 7) covering [month] for the grid.
   static List<DateTime> monthGridDays(DateTime month, int firstDayOfWeek) {
     final start = monthGridStart(month, firstDayOfWeek);
-    return List<DateTime>.generate(42, (i) => addDays(start, i), growable: false);
+    return List<DateTime>.generate(
+      42,
+      (i) => addDays(start, i),
+      growable: false,
+    );
   }
 }

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../core/calendar_date_utils.dart';
-import '../core/ribbon_layout.dart';
-import '../models/calendar_config.dart';
-import '../models/calendar_event.dart';
-import '../models/ops_calendar_theme.dart';
-import '../models/ribbon_segment.dart';
-import 'week_row.dart';
+import 'package:ops_calendar/src/core/calendar_date_utils.dart';
+import 'package:ops_calendar/src/core/ribbon_layout.dart';
+import 'package:ops_calendar/src/models/calendar_config.dart';
+import 'package:ops_calendar/src/models/calendar_event.dart';
+import 'package:ops_calendar/src/models/ops_calendar_theme.dart';
+import 'package:ops_calendar/src/models/ribbon_segment.dart';
+import 'package:ops_calendar/src/widgets/week_row.dart';
 
 /// One 6×7 month grid, ready to live inside a [PageView] page.
 ///
@@ -74,13 +74,17 @@ class MonthPage extends StatelessWidget {
     }
 
     // Pre-compute ribbon segments for all six weeks once per page build.
-    final segmentsByWeek = List<List<RibbonSegment>>.generate(6, (w) {
-      final weekStart = CalendarDateUtils.addDays(gridStart, w * 7);
-      return packRibbonsForWeek(
-        weekStart: weekStart,
-        events: visibleEvents,
-      );
-    }, growable: false);
+    final segmentsByWeek = List<List<RibbonSegment>>.generate(
+      6,
+      (w) {
+        final weekStart = CalendarDateUtils.addDays(gridStart, w * 7);
+        return packRibbonsForWeek(
+          weekStart: weekStart,
+          events: visibleEvents,
+        );
+      },
+      growable: false,
+    );
 
     return RepaintBoundary(
       child: LayoutBuilder(

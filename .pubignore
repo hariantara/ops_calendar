@@ -1,0 +1,43 @@
+# pub.dev archive excludes — kept locally + on GitHub but not published.
+#
+# Note: when a .pubignore exists, it fully replaces .gitignore for the
+# purposes of `pub publish`. So we duplicate the .gitignore exclusions
+# here, then add example/ platform-scaffold exclusions on top.
+
+# Dart / Flutter build artifacts (mirror .gitignore)
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+pubspec.lock
+
+# IDE / editor (mirror .gitignore)
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# macOS
+.DS_Store
+
+# Coverage
+coverage/
+*.lcov
+
+# Example platform scaffolds — consumers run `flutter create .` themselves.
+example/android/
+example/ios/
+example/linux/
+example/macos/
+example/web/
+example/windows/
+example/.gradle/
+example/build/
+example/.dart_tool/
+example/.idea/
+example/*.iml
+example/pubspec.lock
