@@ -58,7 +58,7 @@ void main() {
       await tester.pumpWidget(
         _wrap(
           OpsMonthCalendar(
-            initialMonth: DateTime(2026, 1),
+            initialMonth: DateTime(2026),
             controller: controller,
           ),
         ),
@@ -103,10 +103,10 @@ void main() {
         ),
       );
 
-      controller.jumpToMonth(DateTime(2025, 1));
+      controller.jumpToMonth(DateTime(2025));
       await tester.pump();
 
-      expect(controller.visibleMonth, DateTime(2025, 1));
+      expect(controller.visibleMonth, DateTime(2025));
     });
 
     testWidgets('detaches on dispose', (tester) async {
@@ -134,8 +134,8 @@ void main() {
       // Should not throw.
       await controller.nextMonth();
       await controller.previousMonth();
-      await controller.goToMonth(DateTime(2030, 1));
-      controller.jumpToMonth(DateTime(2030, 1));
+      await controller.goToMonth(DateTime(2030));
+      controller.jumpToMonth(DateTime(2030));
       expect(controller.visibleMonth, isNull);
     });
   });

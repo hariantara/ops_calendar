@@ -6,8 +6,8 @@ part of 'calendar_config.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CalendarConfigImpl _$$CalendarConfigImplFromJson(Map<String, dynamic> json) =>
-    _$CalendarConfigImpl(
+_CalendarConfig _$CalendarConfigFromJson(Map<String, dynamic> json) =>
+    _CalendarConfig(
       firstDayOfWeek:
           (json['firstDayOfWeek'] as num?)?.toInt() ?? DateTime.monday,
       maxVisibleLanes: (json['maxVisibleLanes'] as num?)?.toInt() ?? 3,
@@ -15,8 +15,7 @@ _$CalendarConfigImpl _$$CalendarConfigImplFromJson(Map<String, dynamic> json) =>
       locale: json['locale'] as String?,
     );
 
-Map<String, dynamic> _$$CalendarConfigImplToJson(
-        _$CalendarConfigImpl instance) =>
+Map<String, dynamic> _$CalendarConfigToJson(_CalendarConfig instance) =>
     <String, dynamic>{
       'firstDayOfWeek': instance.firstDayOfWeek,
       'maxVisibleLanes': instance.maxVisibleLanes,

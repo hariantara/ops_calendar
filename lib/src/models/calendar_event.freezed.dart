@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,129 +9,76 @@ part of 'calendar_event.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CalendarEvent _$CalendarEventFromJson(Map<String, dynamic> json) {
-  return _CalendarEvent.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CalendarEvent {
   /// Stable identifier. Used as the widget key when rendering.
-  String get id => throw _privateConstructorUsedError;
+  String get id;
 
   /// Display title shown in the ribbon/chip.
-  String get title => throw _privateConstructorUsedError;
+  String get title;
 
   /// Start of the event (inclusive).
-  DateTime get start => throw _privateConstructorUsedError;
+  DateTime get start;
 
   /// End of the event (inclusive). Must be `>= start`.
-  DateTime get end => throw _privateConstructorUsedError;
+  DateTime get end;
 
   /// Ribbon/chip background color.
   @ColorConverter()
-  Color get color => throw _privateConstructorUsedError;
+  Color get color;
 
   /// Optional secondary line shown beneath the title (where space allows).
-  String? get subtitle => throw _privateConstructorUsedError;
+  String? get subtitle;
 
   /// Arbitrary consumer-attached metadata. Round-trips through JSON
   /// only if its values are JSON-encodable.
-  Map<String, dynamic>? get metadata => throw _privateConstructorUsedError;
-
-  /// Serializes this CalendarEvent to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get metadata;
 
   /// Create a copy of CalendarEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CalendarEventCopyWith<CalendarEvent> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CalendarEventCopyWith<$Res> {
-  factory $CalendarEventCopyWith(
-          CalendarEvent value, $Res Function(CalendarEvent) then) =
-      _$CalendarEventCopyWithImpl<$Res, CalendarEvent>;
-  @useResult
-  $Res call(
-      {String id,
-      String title,
-      DateTime start,
-      DateTime end,
-      @ColorConverter() Color color,
-      String? subtitle,
-      Map<String, dynamic>? metadata});
-}
-
-/// @nodoc
-class _$CalendarEventCopyWithImpl<$Res, $Val extends CalendarEvent>
-    implements $CalendarEventCopyWith<$Res> {
-  _$CalendarEventCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of CalendarEvent
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CalendarEventCopyWith<CalendarEvent> get copyWith =>
+      _$CalendarEventCopyWithImpl<CalendarEvent>(
+          this as CalendarEvent, _$identity);
+
+  /// Serializes this CalendarEvent to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? start = null,
-    Object? end = null,
-    Object? color = null,
-    Object? subtitle = freezed,
-    Object? metadata = freezed,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      start: null == start
-          ? _value.start
-          : start // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      end: null == end
-          ? _value.end
-          : end // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      color: null == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
-              as Color,
-      subtitle: freezed == subtitle
-          ? _value.subtitle
-          : subtitle // ignore: cast_nullable_to_non_nullable
-              as String?,
-      metadata: freezed == metadata
-          ? _value.metadata
-          : metadata // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CalendarEvent &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.start, start) || other.start == start) &&
+            (identical(other.end, end) || other.end == end) &&
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.subtitle, subtitle) ||
+                other.subtitle == subtitle) &&
+            const DeepCollectionEquality().equals(other.metadata, metadata));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, title, start, end, color,
+      subtitle, const DeepCollectionEquality().hash(metadata));
+
+  @override
+  String toString() {
+    return 'CalendarEvent(id: $id, title: $title, start: $start, end: $end, color: $color, subtitle: $subtitle, metadata: $metadata)';
   }
 }
 
 /// @nodoc
-abstract class _$$CalendarEventImplCopyWith<$Res>
-    implements $CalendarEventCopyWith<$Res> {
-  factory _$$CalendarEventImplCopyWith(
-          _$CalendarEventImpl value, $Res Function(_$CalendarEventImpl) then) =
-      __$$CalendarEventImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CalendarEventCopyWith<$Res> {
+  factory $CalendarEventCopyWith(
+          CalendarEvent value, $Res Function(CalendarEvent) _then) =
+      _$CalendarEventCopyWithImpl;
   @useResult
   $Res call(
       {String id,
@@ -144,12 +91,12 @@ abstract class _$$CalendarEventImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CalendarEventImplCopyWithImpl<$Res>
-    extends _$CalendarEventCopyWithImpl<$Res, _$CalendarEventImpl>
-    implements _$$CalendarEventImplCopyWith<$Res> {
-  __$$CalendarEventImplCopyWithImpl(
-      _$CalendarEventImpl _value, $Res Function(_$CalendarEventImpl) _then)
-      : super(_value, _then);
+class _$CalendarEventCopyWithImpl<$Res>
+    implements $CalendarEventCopyWith<$Res> {
+  _$CalendarEventCopyWithImpl(this._self, this._then);
+
+  final CalendarEvent _self;
+  final $Res Function(CalendarEvent) _then;
 
   /// Create a copy of CalendarEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -164,43 +111,227 @@ class __$$CalendarEventImplCopyWithImpl<$Res>
     Object? subtitle = freezed,
     Object? metadata = freezed,
   }) {
-    return _then(_$CalendarEventImpl(
+    return _then(_self.copyWith(
       id: null == id
-          ? _value.id
+          ? _self.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
       title: null == title
-          ? _value.title
+          ? _self.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
       start: null == start
-          ? _value.start
+          ? _self.start
           : start // ignore: cast_nullable_to_non_nullable
               as DateTime,
       end: null == end
-          ? _value.end
+          ? _self.end
           : end // ignore: cast_nullable_to_non_nullable
               as DateTime,
       color: null == color
-          ? _value.color
+          ? _self.color
           : color // ignore: cast_nullable_to_non_nullable
               as Color,
       subtitle: freezed == subtitle
-          ? _value.subtitle
+          ? _self.subtitle
           : subtitle // ignore: cast_nullable_to_non_nullable
               as String?,
       metadata: freezed == metadata
-          ? _value._metadata
+          ? _self.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [CalendarEvent].
+extension CalendarEventPatterns on CalendarEvent {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_CalendarEvent value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarEvent() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_CalendarEvent value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarEvent():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_CalendarEvent value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarEvent() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(
+            String id,
+            String title,
+            DateTime start,
+            DateTime end,
+            @ColorConverter() Color color,
+            String? subtitle,
+            Map<String, dynamic>? metadata)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarEvent() when $default != null:
+        return $default(_that.id, _that.title, _that.start, _that.end,
+            _that.color, _that.subtitle, _that.metadata);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(
+            String id,
+            String title,
+            DateTime start,
+            DateTime end,
+            @ColorConverter() Color color,
+            String? subtitle,
+            Map<String, dynamic>? metadata)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarEvent():
+        return $default(_that.id, _that.title, _that.start, _that.end,
+            _that.color, _that.subtitle, _that.metadata);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(
+            String id,
+            String title,
+            DateTime start,
+            DateTime end,
+            @ColorConverter() Color color,
+            String? subtitle,
+            Map<String, dynamic>? metadata)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarEvent() when $default != null:
+        return $default(_that.id, _that.title, _that.start, _that.end,
+            _that.color, _that.subtitle, _that.metadata);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 @JsonSerializable()
-class _$CalendarEventImpl implements _CalendarEvent {
-  const _$CalendarEventImpl(
+class _CalendarEvent implements CalendarEvent {
+  const _CalendarEvent(
       {required this.id,
       required this.title,
       required this.start,
@@ -209,9 +340,8 @@ class _$CalendarEventImpl implements _CalendarEvent {
       this.subtitle,
       final Map<String, dynamic>? metadata})
       : _metadata = metadata;
-
-  factory _$CalendarEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CalendarEventImplFromJson(json);
+  factory _CalendarEvent.fromJson(Map<String, dynamic> json) =>
+      _$CalendarEventFromJson(json);
 
   /// Stable identifier. Used as the widget key when rendering.
   @override
@@ -254,16 +384,26 @@ class _$CalendarEventImpl implements _CalendarEvent {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Create a copy of CalendarEvent
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CalendarEvent(id: $id, title: $title, start: $start, end: $end, color: $color, subtitle: $subtitle, metadata: $metadata)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CalendarEventCopyWith<_CalendarEvent> get copyWith =>
+      __$CalendarEventCopyWithImpl<_CalendarEvent>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CalendarEventToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CalendarEventImpl &&
+            other is _CalendarEvent &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.start, start) || other.start == start) &&
@@ -279,69 +419,82 @@ class _$CalendarEventImpl implements _CalendarEvent {
   int get hashCode => Object.hash(runtimeType, id, title, start, end, color,
       subtitle, const DeepCollectionEquality().hash(_metadata));
 
-  /// Create a copy of CalendarEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CalendarEventImplCopyWith<_$CalendarEventImpl> get copyWith =>
-      __$$CalendarEventImplCopyWithImpl<_$CalendarEventImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CalendarEventImplToJson(
-      this,
-    );
+  String toString() {
+    return 'CalendarEvent(id: $id, title: $title, start: $start, end: $end, color: $color, subtitle: $subtitle, metadata: $metadata)';
   }
 }
 
-abstract class _CalendarEvent implements CalendarEvent {
-  const factory _CalendarEvent(
-      {required final String id,
-      required final String title,
-      required final DateTime start,
-      required final DateTime end,
-      @ColorConverter() final Color color,
-      final String? subtitle,
-      final Map<String, dynamic>? metadata}) = _$CalendarEventImpl;
-
-  factory _CalendarEvent.fromJson(Map<String, dynamic> json) =
-      _$CalendarEventImpl.fromJson;
-
-  /// Stable identifier. Used as the widget key when rendering.
+/// @nodoc
+abstract mixin class _$CalendarEventCopyWith<$Res>
+    implements $CalendarEventCopyWith<$Res> {
+  factory _$CalendarEventCopyWith(
+          _CalendarEvent value, $Res Function(_CalendarEvent) _then) =
+      __$CalendarEventCopyWithImpl;
   @override
-  String get id;
+  @useResult
+  $Res call(
+      {String id,
+      String title,
+      DateTime start,
+      DateTime end,
+      @ColorConverter() Color color,
+      String? subtitle,
+      Map<String, dynamic>? metadata});
+}
 
-  /// Display title shown in the ribbon/chip.
-  @override
-  String get title;
+/// @nodoc
+class __$CalendarEventCopyWithImpl<$Res>
+    implements _$CalendarEventCopyWith<$Res> {
+  __$CalendarEventCopyWithImpl(this._self, this._then);
 
-  /// Start of the event (inclusive).
-  @override
-  DateTime get start;
-
-  /// End of the event (inclusive). Must be `>= start`.
-  @override
-  DateTime get end;
-
-  /// Ribbon/chip background color.
-  @override
-  @ColorConverter()
-  Color get color;
-
-  /// Optional secondary line shown beneath the title (where space allows).
-  @override
-  String? get subtitle;
-
-  /// Arbitrary consumer-attached metadata. Round-trips through JSON
-  /// only if its values are JSON-encodable.
-  @override
-  Map<String, dynamic>? get metadata;
+  final _CalendarEvent _self;
+  final $Res Function(_CalendarEvent) _then;
 
   /// Create a copy of CalendarEvent
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CalendarEventImplCopyWith<_$CalendarEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? id = null,
+    Object? title = null,
+    Object? start = null,
+    Object? end = null,
+    Object? color = null,
+    Object? subtitle = freezed,
+    Object? metadata = freezed,
+  }) {
+    return _then(_CalendarEvent(
+      id: null == id
+          ? _self.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _self.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      start: null == start
+          ? _self.start
+          : start // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      end: null == end
+          ? _self.end
+          : end // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      color: null == color
+          ? _self.color
+          : color // ignore: cast_nullable_to_non_nullable
+              as Color,
+      subtitle: freezed == subtitle
+          ? _self.subtitle
+          : subtitle // ignore: cast_nullable_to_non_nullable
+              as String?,
+      metadata: freezed == metadata
+          ? _self._metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>?,
+    ));
+  }
 }
+
+// dart format on

@@ -11,8 +11,8 @@ part 'calendar_event.g.dart';
 /// An event spans an inclusive date range from [start] to [end]. A single-day
 /// event has `end` on the same date as `start`. Time components are preserved
 /// for consumer use but the month view renders by date only.
-@Freezed(toJson: true, fromJson: true)
-class CalendarEvent with _$CalendarEvent {
+@freezed
+abstract class CalendarEvent with _$CalendarEvent {
   /// Creates a [CalendarEvent].
   const factory CalendarEvent({
     /// Stable identifier. Used as the widget key when rendering.

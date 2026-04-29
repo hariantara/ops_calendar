@@ -1,7 +1,7 @@
 /// ops_calendar — a lightweight Flutter month calendar with multi-day
 /// event ribbons.
 ///
-/// Entry point: [OpsMonthCalendar].
+/// Entry point: `OpsMonthCalendar`.
 library;
 
 export 'src/controllers/ops_calendar_controller.dart';

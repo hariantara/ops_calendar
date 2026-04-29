@@ -125,7 +125,7 @@ void main() {
       final b = _event(
         id: 'b',
         start: DateTime(2026, 4, 30),
-        end: DateTime(2026, 5, 1),
+        end: DateTime(2026, 5),
       );
       final segments = packRibbonsForWeek(weekStart: monday, events: [a, b]);
       final byId = {for (final s in segments) s.event.id: s};
@@ -142,7 +142,7 @@ void main() {
       final b = _event(
         id: 'b',
         start: DateTime(2026, 4, 29),
-        end: DateTime(2026, 5, 1),
+        end: DateTime(2026, 5),
       );
       final segments = packRibbonsForWeek(weekStart: monday, events: [a, b]);
       final byId = {for (final s in segments) s.event.id: s};
@@ -154,17 +154,17 @@ void main() {
       final a = _event(
         id: 'a',
         start: DateTime(2026, 4, 27),
-        end: DateTime(2026, 5, 1),
+        end: DateTime(2026, 5),
       );
       final b = _event(
         id: 'b',
         start: DateTime(2026, 4, 27),
-        end: DateTime(2026, 5, 1),
+        end: DateTime(2026, 5),
       );
       final c = _event(
         id: 'c',
         start: DateTime(2026, 4, 27),
-        end: DateTime(2026, 5, 1),
+        end: DateTime(2026, 5),
       );
       final segments =
           packRibbonsForWeek(weekStart: monday, events: [a, b, c]);

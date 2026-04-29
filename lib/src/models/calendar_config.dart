@@ -7,8 +7,8 @@ part 'calendar_config.g.dart';
 ///
 /// All fields are optional; defaults match the most common usage
 /// (Monday as first day of week, max 3 visible event lanes).
-@Freezed(toJson: true, fromJson: true)
-class CalendarConfig with _$CalendarConfig {
+@freezed
+abstract class CalendarConfig with _$CalendarConfig {
   /// Creates a [CalendarConfig].
   const factory CalendarConfig({
     /// Day of week shown in the leftmost column.

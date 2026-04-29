@@ -1,3 +1,10 @@
+## 0.1.2
+
+- Migrate to `freezed` 3.x and `freezed_annotation` 3.x.
+- Bump `meta` to ^1.18.0.
+- Model classes are now `abstract` per freezed 3 conventions.
+- No public API changes — all consumers continue to work unchanged.
+
 ## 0.1.1
 
 - Switched all internal imports to `package:` form (lint cleanup, no

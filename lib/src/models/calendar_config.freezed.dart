@@ -1,5 +1,5 @@
-// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// coverage:ignore-file
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
@@ -9,103 +9,67 @@ part of 'calendar_config.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-CalendarConfig _$CalendarConfigFromJson(Map<String, dynamic> json) {
-  return _CalendarConfig.fromJson(json);
-}
 
 /// @nodoc
 mixin _$CalendarConfig {
   /// Day of week shown in the leftmost column.
   /// 1 = Monday, 7 = Sunday (ISO 8601).
-  int get firstDayOfWeek => throw _privateConstructorUsedError;
+  int get firstDayOfWeek;
 
   /// Maximum number of event lanes shown per day cell before
   /// remaining events collapse into a "+N more" indicator.
-  int get maxVisibleLanes => throw _privateConstructorUsedError;
+  int get maxVisibleLanes;
 
   /// Whether to show weekday labels in the header row.
-  bool get showWeekdayLabels => throw _privateConstructorUsedError;
+  bool get showWeekdayLabels;
 
   /// Locale identifier for weekday and month labels (e.g. `'en_US'`).
   /// When null, falls back to the ambient locale of the build context.
-  String? get locale => throw _privateConstructorUsedError;
-
-  /// Serializes this CalendarConfig to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  String? get locale;
 
   /// Create a copy of CalendarConfig
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CalendarConfigCopyWith<CalendarConfig> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $CalendarConfigCopyWith<$Res> {
-  factory $CalendarConfigCopyWith(
-          CalendarConfig value, $Res Function(CalendarConfig) then) =
-      _$CalendarConfigCopyWithImpl<$Res, CalendarConfig>;
-  @useResult
-  $Res call(
-      {int firstDayOfWeek,
-      int maxVisibleLanes,
-      bool showWeekdayLabels,
-      String? locale});
-}
-
-/// @nodoc
-class _$CalendarConfigCopyWithImpl<$Res, $Val extends CalendarConfig>
-    implements $CalendarConfigCopyWith<$Res> {
-  _$CalendarConfigCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  /// Create a copy of CalendarConfig
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
+  $CalendarConfigCopyWith<CalendarConfig> get copyWith =>
+      _$CalendarConfigCopyWithImpl<CalendarConfig>(
+          this as CalendarConfig, _$identity);
+
+  /// Serializes this CalendarConfig to a JSON map.
+  Map<String, dynamic> toJson();
+
   @override
-  $Res call({
-    Object? firstDayOfWeek = null,
-    Object? maxVisibleLanes = null,
-    Object? showWeekdayLabels = null,
-    Object? locale = freezed,
-  }) {
-    return _then(_value.copyWith(
-      firstDayOfWeek: null == firstDayOfWeek
-          ? _value.firstDayOfWeek
-          : firstDayOfWeek // ignore: cast_nullable_to_non_nullable
-              as int,
-      maxVisibleLanes: null == maxVisibleLanes
-          ? _value.maxVisibleLanes
-          : maxVisibleLanes // ignore: cast_nullable_to_non_nullable
-              as int,
-      showWeekdayLabels: null == showWeekdayLabels
-          ? _value.showWeekdayLabels
-          : showWeekdayLabels // ignore: cast_nullable_to_non_nullable
-              as bool,
-      locale: freezed == locale
-          ? _value.locale
-          : locale // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CalendarConfig &&
+            (identical(other.firstDayOfWeek, firstDayOfWeek) ||
+                other.firstDayOfWeek == firstDayOfWeek) &&
+            (identical(other.maxVisibleLanes, maxVisibleLanes) ||
+                other.maxVisibleLanes == maxVisibleLanes) &&
+            (identical(other.showWeekdayLabels, showWeekdayLabels) ||
+                other.showWeekdayLabels == showWeekdayLabels) &&
+            (identical(other.locale, locale) || other.locale == locale));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, firstDayOfWeek, maxVisibleLanes, showWeekdayLabels, locale);
+
+  @override
+  String toString() {
+    return 'CalendarConfig(firstDayOfWeek: $firstDayOfWeek, maxVisibleLanes: $maxVisibleLanes, showWeekdayLabels: $showWeekdayLabels, locale: $locale)';
   }
 }
 
 /// @nodoc
-abstract class _$$CalendarConfigImplCopyWith<$Res>
-    implements $CalendarConfigCopyWith<$Res> {
-  factory _$$CalendarConfigImplCopyWith(_$CalendarConfigImpl value,
-          $Res Function(_$CalendarConfigImpl) then) =
-      __$$CalendarConfigImplCopyWithImpl<$Res>;
-  @override
+abstract mixin class $CalendarConfigCopyWith<$Res> {
+  factory $CalendarConfigCopyWith(
+          CalendarConfig value, $Res Function(CalendarConfig) _then) =
+      _$CalendarConfigCopyWithImpl;
   @useResult
   $Res call(
       {int firstDayOfWeek,
@@ -115,12 +79,12 @@ abstract class _$$CalendarConfigImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CalendarConfigImplCopyWithImpl<$Res>
-    extends _$CalendarConfigCopyWithImpl<$Res, _$CalendarConfigImpl>
-    implements _$$CalendarConfigImplCopyWith<$Res> {
-  __$$CalendarConfigImplCopyWithImpl(
-      _$CalendarConfigImpl _value, $Res Function(_$CalendarConfigImpl) _then)
-      : super(_value, _then);
+class _$CalendarConfigCopyWithImpl<$Res>
+    implements $CalendarConfigCopyWith<$Res> {
+  _$CalendarConfigCopyWithImpl(this._self, this._then);
+
+  final CalendarConfig _self;
+  final $Res Function(CalendarConfig) _then;
 
   /// Create a copy of CalendarConfig
   /// with the given fields replaced by the non-null parameter values.
@@ -132,38 +96,203 @@ class __$$CalendarConfigImplCopyWithImpl<$Res>
     Object? showWeekdayLabels = null,
     Object? locale = freezed,
   }) {
-    return _then(_$CalendarConfigImpl(
+    return _then(_self.copyWith(
       firstDayOfWeek: null == firstDayOfWeek
-          ? _value.firstDayOfWeek
+          ? _self.firstDayOfWeek
           : firstDayOfWeek // ignore: cast_nullable_to_non_nullable
               as int,
       maxVisibleLanes: null == maxVisibleLanes
-          ? _value.maxVisibleLanes
+          ? _self.maxVisibleLanes
           : maxVisibleLanes // ignore: cast_nullable_to_non_nullable
               as int,
       showWeekdayLabels: null == showWeekdayLabels
-          ? _value.showWeekdayLabels
+          ? _self.showWeekdayLabels
           : showWeekdayLabels // ignore: cast_nullable_to_non_nullable
               as bool,
       locale: freezed == locale
-          ? _value.locale
+          ? _self.locale
           : locale // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
 }
 
+/// Adds pattern-matching-related methods to [CalendarConfig].
+extension CalendarConfigPatterns on CalendarConfig {
+  /// A variant of `map` that fallback to returning `orElse`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>(
+    TResult Function(_CalendarConfig value)? $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarConfig() when $default != null:
+        return $default(_that);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// Callbacks receives the raw object, upcasted.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case final Subclass2 value:
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>(
+    TResult Function(_CalendarConfig value) $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarConfig():
+        return $default(_that);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `map` that fallback to returning `null`.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case final Subclass value:
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>(
+    TResult? Function(_CalendarConfig value)? $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarConfig() when $default != null:
+        return $default(_that);
+      case _:
+        return null;
+    }
+  }
+
+  /// A variant of `when` that fallback to an `orElse` callback.
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return orElse();
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>(
+    TResult Function(int firstDayOfWeek, int maxVisibleLanes,
+            bool showWeekdayLabels, String? locale)?
+        $default, {
+    required TResult orElse(),
+  }) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarConfig() when $default != null:
+        return $default(_that.firstDayOfWeek, _that.maxVisibleLanes,
+            _that.showWeekdayLabels, _that.locale);
+      case _:
+        return orElse();
+    }
+  }
+
+  /// A `switch`-like method, using callbacks.
+  ///
+  /// As opposed to `map`, this offers destructuring.
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case Subclass2(:final field2):
+  ///     return ...;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>(
+    TResult Function(int firstDayOfWeek, int maxVisibleLanes,
+            bool showWeekdayLabels, String? locale)
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarConfig():
+        return $default(_that.firstDayOfWeek, _that.maxVisibleLanes,
+            _that.showWeekdayLabels, _that.locale);
+      case _:
+        throw StateError('Unexpected subclass');
+    }
+  }
+
+  /// A variant of `when` that fallback to returning `null`
+  ///
+  /// It is equivalent to doing:
+  /// ```dart
+  /// switch (sealedClass) {
+  ///   case Subclass(:final field):
+  ///     return ...;
+  ///   case _:
+  ///     return null;
+  /// }
+  /// ```
+
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>(
+    TResult? Function(int firstDayOfWeek, int maxVisibleLanes,
+            bool showWeekdayLabels, String? locale)?
+        $default,
+  ) {
+    final _that = this;
+    switch (_that) {
+      case _CalendarConfig() when $default != null:
+        return $default(_that.firstDayOfWeek, _that.maxVisibleLanes,
+            _that.showWeekdayLabels, _that.locale);
+      case _:
+        return null;
+    }
+  }
+}
+
 /// @nodoc
 @JsonSerializable()
-class _$CalendarConfigImpl implements _CalendarConfig {
-  const _$CalendarConfigImpl(
+class _CalendarConfig implements CalendarConfig {
+  const _CalendarConfig(
       {this.firstDayOfWeek = DateTime.monday,
       this.maxVisibleLanes = 3,
       this.showWeekdayLabels = true,
       this.locale});
-
-  factory _$CalendarConfigImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CalendarConfigImplFromJson(json);
+  factory _CalendarConfig.fromJson(Map<String, dynamic> json) =>
+      _$CalendarConfigFromJson(json);
 
   /// Day of week shown in the leftmost column.
   /// 1 = Monday, 7 = Sunday (ISO 8601).
@@ -187,16 +316,26 @@ class _$CalendarConfigImpl implements _CalendarConfig {
   @override
   final String? locale;
 
+  /// Create a copy of CalendarConfig
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  String toString() {
-    return 'CalendarConfig(firstDayOfWeek: $firstDayOfWeek, maxVisibleLanes: $maxVisibleLanes, showWeekdayLabels: $showWeekdayLabels, locale: $locale)';
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CalendarConfigCopyWith<_CalendarConfig> get copyWith =>
+      __$CalendarConfigCopyWithImpl<_CalendarConfig>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$CalendarConfigToJson(
+      this,
+    );
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CalendarConfigImpl &&
+            other is _CalendarConfig &&
             (identical(other.firstDayOfWeek, firstDayOfWeek) ||
                 other.firstDayOfWeek == firstDayOfWeek) &&
             (identical(other.maxVisibleLanes, maxVisibleLanes) ||
@@ -211,56 +350,64 @@ class _$CalendarConfigImpl implements _CalendarConfig {
   int get hashCode => Object.hash(
       runtimeType, firstDayOfWeek, maxVisibleLanes, showWeekdayLabels, locale);
 
-  /// Create a copy of CalendarConfig
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  @pragma('vm:prefer-inline')
-  _$$CalendarConfigImplCopyWith<_$CalendarConfigImpl> get copyWith =>
-      __$$CalendarConfigImplCopyWithImpl<_$CalendarConfigImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$CalendarConfigImplToJson(
-      this,
-    );
+  String toString() {
+    return 'CalendarConfig(firstDayOfWeek: $firstDayOfWeek, maxVisibleLanes: $maxVisibleLanes, showWeekdayLabels: $showWeekdayLabels, locale: $locale)';
   }
 }
 
-abstract class _CalendarConfig implements CalendarConfig {
-  const factory _CalendarConfig(
-      {final int firstDayOfWeek,
-      final int maxVisibleLanes,
-      final bool showWeekdayLabels,
-      final String? locale}) = _$CalendarConfigImpl;
-
-  factory _CalendarConfig.fromJson(Map<String, dynamic> json) =
-      _$CalendarConfigImpl.fromJson;
-
-  /// Day of week shown in the leftmost column.
-  /// 1 = Monday, 7 = Sunday (ISO 8601).
+/// @nodoc
+abstract mixin class _$CalendarConfigCopyWith<$Res>
+    implements $CalendarConfigCopyWith<$Res> {
+  factory _$CalendarConfigCopyWith(
+          _CalendarConfig value, $Res Function(_CalendarConfig) _then) =
+      __$CalendarConfigCopyWithImpl;
   @override
-  int get firstDayOfWeek;
+  @useResult
+  $Res call(
+      {int firstDayOfWeek,
+      int maxVisibleLanes,
+      bool showWeekdayLabels,
+      String? locale});
+}
 
-  /// Maximum number of event lanes shown per day cell before
-  /// remaining events collapse into a "+N more" indicator.
-  @override
-  int get maxVisibleLanes;
+/// @nodoc
+class __$CalendarConfigCopyWithImpl<$Res>
+    implements _$CalendarConfigCopyWith<$Res> {
+  __$CalendarConfigCopyWithImpl(this._self, this._then);
 
-  /// Whether to show weekday labels in the header row.
-  @override
-  bool get showWeekdayLabels;
-
-  /// Locale identifier for weekday and month labels (e.g. `'en_US'`).
-  /// When null, falls back to the ambient locale of the build context.
-  @override
-  String? get locale;
+  final _CalendarConfig _self;
+  final $Res Function(_CalendarConfig) _then;
 
   /// Create a copy of CalendarConfig
   /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CalendarConfigImplCopyWith<_$CalendarConfigImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? firstDayOfWeek = null,
+    Object? maxVisibleLanes = null,
+    Object? showWeekdayLabels = null,
+    Object? locale = freezed,
+  }) {
+    return _then(_CalendarConfig(
+      firstDayOfWeek: null == firstDayOfWeek
+          ? _self.firstDayOfWeek
+          : firstDayOfWeek // ignore: cast_nullable_to_non_nullable
+              as int,
+      maxVisibleLanes: null == maxVisibleLanes
+          ? _self.maxVisibleLanes
+          : maxVisibleLanes // ignore: cast_nullable_to_non_nullable
+              as int,
+      showWeekdayLabels: null == showWeekdayLabels
+          ? _self.showWeekdayLabels
+          : showWeekdayLabels // ignore: cast_nullable_to_non_nullable
+              as bool,
+      locale: freezed == locale
+          ? _self.locale
+          : locale // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
 }
+
+// dart format on

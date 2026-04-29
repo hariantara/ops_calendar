@@ -10,7 +10,7 @@ part 'ribbon_segment.freezed.dart';
 /// per week they appear in. Internal layout type — not part of the public
 /// consumer API.
 @freezed
-class RibbonSegment with _$RibbonSegment {
+abstract class RibbonSegment with _$RibbonSegment {
   /// Creates a [RibbonSegment].
   const factory RibbonSegment({
     /// The source event this segment renders.

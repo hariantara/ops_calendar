@@ -34,7 +34,7 @@ void main() {
 
     test('negative', () {
       expect(
-        CalendarDateUtils.addDays(DateTime(2026, 5, 1), -2),
+        CalendarDateUtils.addDays(DateTime(2026, 5), -2),
         DateTime(2026, 4, 29),
       );
     });
@@ -51,7 +51,7 @@ void main() {
     test('forward', () {
       expect(
         CalendarDateUtils.daysBetween(
-          DateTime(2026, 4, 1),
+          DateTime(2026, 4),
           DateTime(2026, 4, 8),
         ),
         7,
@@ -72,7 +72,7 @@ void main() {
       expect(
         CalendarDateUtils.daysBetween(
           DateTime(2026, 4, 5),
-          DateTime(2026, 4, 1),
+          DateTime(2026, 4),
         ),
         -4,
       );
@@ -96,15 +96,15 @@ void main() {
 
     test('crosses year boundary forward', () {
       expect(
-        CalendarDateUtils.addMonths(DateTime(2026, 11, 1), 3),
-        DateTime(2027, 2, 1),
+        CalendarDateUtils.addMonths(DateTime(2026, 11), 3),
+        DateTime(2027, 2),
       );
     });
 
     test('crosses year boundary backward', () {
       expect(
-        CalendarDateUtils.addMonths(DateTime(2026, 2, 1), -3),
-        DateTime(2025, 11, 1),
+        CalendarDateUtils.addMonths(DateTime(2026, 2), -3),
+        DateTime(2025, 11),
       );
     });
   });
