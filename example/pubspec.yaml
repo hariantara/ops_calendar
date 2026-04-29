@@ -1,0 +1,23 @@
+name: ops_calendar_example
+description: BLoC-driven example app for ops_calendar.
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.6.0 <4.0.0"
+  flutter: ">=3.27.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.6
+  ops_calendar:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
